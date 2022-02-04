@@ -1,5 +1,5 @@
 const fs = require("fs");
-const configData = fs.readFileSync("./config.json", "utf8");
+const configData = fs.readFileSync("./config.dev.json", "utf8");
 const config = JSON.parse(configData);
 
 
@@ -20,7 +20,7 @@ async function login() {
 	});
 }
 
-// login();
+login();
 async function main() {
   Object.entries(config.schedules).forEach(([key, schedule]) => {
     if (
@@ -34,13 +34,13 @@ async function main() {
     } else if (schedule.every.type.toLowerCase() == "day") {
       let date = new Date();
       if (date.getDay() == schedule.every.value.day) {
-        let dateTime = date.getHours() + ":" + date.getMinutes();
+        let dateTime =  (date.getHours().toString().length == 1 ? "0" : "") + date.getHours() + ":" + (date.getMinutes().toString().length == 1 ? "0" : "") + date.getMinutes();
         if (dateTime == schedule.every.value.at) {
           let msg = Math.floor(Math.random() * schedule.messages.length);
           handleMessage(schedule.channel,schedule.messages[msg]);
         }
       } else if (schedule.every.value.day == "daily") {
-        let dateTime = date.getHours() + ":" + date.getMinutes();
+        let dateTime =  (date.getHours().toString().length == 1 ? "0" : "") + date.getHours() + ":" + (date.getMinutes().toString().length == 1 ? "0" : "") + date.getMinutes();
         if (dateTime == schedule.every.value.at) {
           let msg = Math.floor(Math.random() * schedule.messages.length);
           handleMessage(schedule.channel, schedule.messages[msg]);
