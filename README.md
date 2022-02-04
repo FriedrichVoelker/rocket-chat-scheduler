@@ -4,16 +4,16 @@
 
 ``docker run -d <username>/rocket-chat-scheduler``
 
-```json	
+```js	
 "scheduleName": {
 	"channel": "#GENERAL", //#channel, @user
-		"messages": ["Nachricht1","Nachricht2"],
+		"messages": ["Nachricht1","Nachricht2"], // Nachricht wird zufällig ausgewählt
 		"every": { 
-			"value":  {
+			"value":  { // Bei min nur Zahl
 				"day": 5, // Montag: 1, Dienstag: 2, Mittwoch: 3, Donnerstag: 4, Freitag: 5, Samstag: 6, Sonntag: 0, Täglich: daily
 				"at": "8:38" // HH:mm / H:mm	
 			},
-			"type": "day" // day, minute,
+			"type": "day" // day, minute
 		}
 	}
 
