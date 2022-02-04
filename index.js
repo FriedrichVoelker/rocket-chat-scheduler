@@ -1,5 +1,5 @@
 const fs = require("fs");
-const configData = fs.readFileSync("./config.dev.json", "utf8");
+const configData = fs.readFileSync("./config.json", "utf8");
 const config = JSON.parse(configData);
 
 
