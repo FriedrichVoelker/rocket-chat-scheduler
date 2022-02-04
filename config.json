@@ -1,0 +1,18 @@
+{	
+	"url": "https://chat.domain.tld",
+	"username": "",
+	"password": "",
+	"schedules": {
+		"schedule": {
+			"channel": "#GENERAL",
+			"messages": ["Message1", "Message2", "Message3"],
+			"every": {
+				"value":  {
+					"day": 4,
+					"at": "12:00"	
+				},
+				"type": "day"
+			}
+		}
+	} 
+}
