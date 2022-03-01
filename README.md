@@ -1,8 +1,25 @@
 ## Rocket.Chat Message Scheduler
+### Installation
 
-``docker build . -t <username>/rocket-chat-scheduler``
+- Clone the repo edit the config.js file and run ``docker-compose up -d``
 
-``docker run -d <username>/rocket-chat-scheduler``
+
+docker-compose.yml
+
+```version: "1.0"
+services:
+  bot:
+    build: .
+    volumes:
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+```
+
+Added ``/etc/timezone`` & ``/etc/localtime`` to have the container use the timezone of the host.
+
+
+
+config.js
 
 ```js	
 "scheduleName": {
