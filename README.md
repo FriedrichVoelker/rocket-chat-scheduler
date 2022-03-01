@@ -1,7 +1,7 @@
 ## Rocket.Chat Message Scheduler
 ### Installation
 
-- Clone the repo and run ``docker-compose up -d``
+- Clone the repo edit the config.js file and run ``docker-compose up -d``
 
 
 docker-compose.yml
