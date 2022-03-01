@@ -1,8 +1,8 @@
 ## Rocket.Chat Message Scheduler
 
-``docker build . -t <username>/rocket-chat-scheduler``
+``docker-compose up -d``
 
-``docker run -d <username>/rocket-chat-scheduler``
+config.js
 
 ```js	
 "scheduleName": {
