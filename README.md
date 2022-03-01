@@ -1,5 +1,18 @@
 ## Rocket.Chat Message Scheduler
 
+docker-compose.yml
+
+```version: "1.0"
+services:
+  bot:
+    build: .
+    volumes:
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+```
+
+Added ``/etc/timezone`` & ``/etc/localtime`` to have the container use the timezone of the host.
+
 ``docker-compose up -d``
 
 config.js
