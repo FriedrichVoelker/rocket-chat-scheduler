@@ -1,7 +1,10 @@
 ## Rocket.Chat Message Scheduler
 ### Installation
 
-- Clone the repo edit the config.js file and run ``docker-compose up -d``
+- Clone the repo
+- Copy config.example.json into config.json
+- Edit the config.json
+- Run ``docker-compose up -d``
 
 
 docker-compose.yml
@@ -19,7 +22,7 @@ Added ``/etc/timezone`` & ``/etc/localtime`` to have the container use the timez
 
 
 
-config.js
+config.json
 
 ```js	
 "scheduleName": {
