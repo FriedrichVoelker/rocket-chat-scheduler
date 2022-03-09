@@ -2,6 +2,7 @@
 	"url": "https://chat.domain.tld",
 	"username": "",
 	"password": "",
+	"timezone": "Europe/Germany",
 	"schedules": {
 		"schedule": {
 			"channel": "#GENERAL",

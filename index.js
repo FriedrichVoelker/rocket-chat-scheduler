@@ -2,6 +2,8 @@ const fs = require("fs");
 const configData = fs.readFileSync("./config.json", "utf8");
 const config = JSON.parse(configData);
 
+process.env.TZ = config.timezone
+
 
 let minutes = 0;
 let token = null;
@@ -20,7 +22,6 @@ async function login() {
 	});
 }
 
-login();
 async function main() {
   Object.entries(config.schedules).forEach(([key, schedule]) => {
     if (
@@ -55,6 +56,7 @@ async function main() {
 async function handleMessage(channel,msg) {
 	
   let res = await http("POST", "chat.postMessage", `{ "channel": "${channel}", "text": "${msg}" }`);
+console.log(res)
   if(res.success){
 	console.log(res.message.msg)
   }
@@ -73,6 +75,8 @@ async function http(method,endpoint, reqData) {
 
     xhr.onreadystatechange = async function () {
       if (xhr.readyState === 4) {
+		// console.log(xhr.status)
+		// console.log(xhr.responseText)
 		if(xhr.status == 401){
 			let loggedin = await login();
 			if(loggedin){
@@ -90,7 +94,7 @@ async function http(method,endpoint, reqData) {
     return JSON.stringify({ error: err });
   });
 }
-
+login();
 main();
 setInterval(function () { main();}, 60000);
 console.log("Scheduler Started");
